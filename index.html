@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Online Whiteboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="whiteboard-container">
+        <header>
+            <h1>Interactive Online Whiteboard</h1>
+            <span id="statusText" class="status" aria-live="polite">Ready</span>
+        </header>
+
+        <div class="toolbar" role="toolbar" aria-label="Drawing tools">
+            <div class="group">
+                <button id="penButton" class="tool active" data-tool="pen" title="Pen (P)">Pen</button>
+                <button id="eraserButton" class="tool" data-tool="eraser" title="Eraser (E)">Eraser</button>
+                <button id="lineButton" class="tool" data-tool="line" title="Line (L)">Line</button>
+                <button id="rectButton" class="tool" data-tool="rect" title="Rectangle (R)">Rectangle</button>
+                <button id="circleButton" class="tool" data-tool="circle" title="Ellipse (O)">Ellipse</button>
+                <button id="textButton" class="tool" data-tool="text" title="Text (T)">Text</button>
+            </div>
+
+            <div class="group">
+                <label class="field" title="Brush colour">
+                    Colour
+                    <input type="color" id="colorPicker" class="tool-input" value="#000000">
+                </label>
+                <label class="field" title="Canvas background colour">
+                    Background
+                    <input type="color" id="bgColorPicker" class="tool-input" value="#ffffff">
+                </label>
+                <label class="field" title="Fill shapes with the selected colour">
+                    <input type="checkbox" id="fillCheckbox"> Fill shapes
+                </label>
+                <label class="field" title="Brush size">
+                    Size
+                    <input type="range" id="brushSize" class="tool-input" min="1" max="40" value="5">
+                    <output id="brushSizeValue">5</output>
+                </label>
+            </div>
+
+            <div class="group">
+                <button id="undoButton" class="tool secondary" title="Undo (Ctrl+Z)">Undo</button>
+                <button id="redoButton" class="tool secondary" title="Redo (Ctrl+Y)">Redo</button>
+                <button id="saveButton" class="tool success" title="Download as PNG (Ctrl+S)">Save PNG</button>
+                <button id="clearButton" class="tool clear-btn" title="Clear the board">Clear</button>
+            </div>
+        </div>
+
+        <div class="canvas-wrapper" id="canvasWrapper">
+            <canvas id="whiteboard"></canvas>
+        </div>
+
+        <p class="hint">
+            Shortcuts: P pen, E eraser, L line, R rectangle, O ellipse, T text,
+            Ctrl+Z undo, Ctrl+Y redo, Ctrl+S save. Your board is saved automatically
+            and syncs live between tabs of this browser.
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

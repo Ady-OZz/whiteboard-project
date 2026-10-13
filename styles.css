@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 24px 12px;
+    background-color: #ebacac;
+}
+
+.whiteboard-container {
+    width: 95%;
+    max-width: 1200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+}
+
+.status {
+    font-size: 14px;
+    color: #666;
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 24px;
+    margin-bottom: 16px;
+}
+
+.group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.tool {
+    padding: 9px 14px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: inherit;
+    transition: background-color 0.3s;
+}
+
+.tool:hover {
+    background-color: #2980b9;
+}
+
+.tool.active {
+    background-color: #1f5f8b;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4);
+}
+
+.tool.secondary {
+    background-color: #7f8c8d;
+}
+
+.tool.secondary:hover {
+    background-color: #636e6f;
+}
+
+.tool.success {
+    background-color: #27ae60;
+}
+
+.tool.success:hover {
+    background-color: #1e8449;
+}
+
+.tool:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.tool:focus-visible,
+.tool-input:focus-visible,
+#fillCheckbox:focus-visible {
+    outline: 3px solid #f39c12;
+    outline-offset: 2px;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+input[type="color"],
+input[type="range"] {
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border 0.3s;
+}
+
+input[type="color"] {
+    width: 42px;
+    height: 36px;
+    background: #fff;
+}
+
+input[type="color"]:hover,
+input[type="range"]:hover {
+    border: 1px solid #3498db;
+}
+
+output {
+    min-width: 22px;
+    font-size: 14px;
+    color: #333;
+}
+
+.clear-btn {
+    background-color: #e74c3c;
+}
+
+.clear-btn:hover {
+    background-color: #c0392b;
+}
+
+.canvas-wrapper {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+}
+
+#whiteboard {
+    display: block;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    cursor: crosshair;
+    touch-action: none;       /* stops the page scrolling while drawing on touch screens */
+}
+
+.text-input {
+    position: absolute;
+    z-index: 5;
+    min-width: 140px;
+    padding: 2px 4px;
+    border: 1px dashed #3498db;
+    background: rgba(255, 255, 255, 0.85);
+    outline: none;
+    font-family: Arial, sans-serif;
+    line-height: 1.2;
+}
+
+.hint {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #666;
+}
+
+@media (max-width: 700px) {
+    h1 {
+        font-size: 18px;
+    }
+    .whiteboard-container {
+        padding: 12px;
+    }
+}
